@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="loginfrom">
   <form>
     <label for="email" class="login-form">Email: </label>
       <input name="email" type="email" class="login-form" v-model="email"><br>
@@ -35,5 +35,18 @@ async function signInWithEmail() {
 <style scoped>
   .login-form {
     margin-top: 20px;
+  }
+  #loginfrom{
+    position: relative;
+left: 50%;transform: translate(-50%);
+    border-radius: 10px;
+    max-width: 500px;
+    border: solid;
+    padding: 5px;
+    align-self: center;
+    background-color: white;
+    margin: 20px;
+    border-width: 2px;
+    border-color: #6a6a6a;
   }
 </style>
