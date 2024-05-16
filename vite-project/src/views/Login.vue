@@ -1,6 +1,11 @@
 <template>
   <body>
 <div id="loginfrom">
+  <header>
+    <div id="logo">
+    <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="POKEMON LOGO">
+    </div>
+  </header>
   <form>
     <label for="email" class="login-form">Email: </label>
       <input name="email" type="email" class="login-form" v-model="email"><br>
@@ -55,4 +60,10 @@ left: 50%;transform: translate(-50%);
     border-width: 2px;
     border-color: #6a6a6a;
   }
+ #logo{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+transform: scale(.5);
+ }
 </style>
