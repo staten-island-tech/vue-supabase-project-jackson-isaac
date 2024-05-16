@@ -77,7 +77,9 @@ nav a:first-of-type {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-
+#app{
+  display: flex;
+}
   nav {
     text-align: left;
     margin-left: -1rem;
