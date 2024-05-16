@@ -79,6 +79,9 @@ nav a:first-of-type {
   }
 #app{
   display: flex;
+  text-align: center;
+  color: red;
+  
 }
   nav {
     text-align: left;
