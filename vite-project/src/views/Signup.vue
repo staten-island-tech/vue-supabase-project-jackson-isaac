@@ -1,4 +1,7 @@
 <template>
+  <body>
+    
+
   <div>
     <form>
       <label for="email" class="signup-form">Email: </label>
@@ -9,6 +12,7 @@
     </form>
     <RouterLink to="/" class="link">I have an account.</RouterLink>
   </div>
+</body>
 </template>
 
 <script setup lang="ts">
@@ -41,6 +45,10 @@ async function signUpNewUser() {
 </script>
 
 <style scoped>
+body{
+  background-image: url(https://static.prod.pokemon.com/images/pikachu_pattern.png);
+    background-repeat: repeat;
+}
   .signup-form {
     margin-top: 20px;
   }

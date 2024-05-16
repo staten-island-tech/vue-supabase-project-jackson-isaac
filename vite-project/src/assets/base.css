@@ -32,7 +32,8 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
-
+  background-image: url(https://static.prod.pokemon.com/images/pikachu_pattern.png);
+    background-repeat: repeat;
   --section-gap: 160px;
 }
 

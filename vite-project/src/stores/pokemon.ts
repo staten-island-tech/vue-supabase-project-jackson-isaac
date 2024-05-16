@@ -892,7 +892,7 @@ export const pokemon =
       "number": 149,
       "name": "Dragonite",
       "sprite": "https://img.pokemondb.net/sprites/black-white/normal/dragonite.png",
-      "rarity": "Legendary"
+      "rarity": "Rare"
     },
     {
       "number": 150,
