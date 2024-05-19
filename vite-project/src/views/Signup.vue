@@ -1,15 +1,15 @@
 <template>
   <body>
-    <div id="create-form">
+    <div id="signup-form">
       <header>
         <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="Pokemon Logo" id="logo">
         <h1 id="title">Egg Hatching Simulator</h1>
       </header>
       <form>
         <input name="email" type="email" required placeholder="Email" class="input" v-model="email"><br>
-        <input name="user" type="text" required placeholder="Username" minlength="4" maxlength="20" class="input" v-model="username"><br>
-        <input name="password" type="password" required placeholder="Password" class="input" v-model="password"><br>
-        <input type="submit" value="Sign Up" class="button" id="create" @click.prevent="signUpNewUser()">
+        <input name="user" type="text" required placeholder="Username" minlength="5" maxlength="20" class="input" v-model="username"><br>
+        <input name="password" type="password" required placeholder="Password" minlength="6" class="input" v-model="password"><br>
+        <input type="submit" value="Sign Up" class="button" id="signup" @click.prevent="signUpNewUser()">
       </form>
       <RouterLink to="/" class="button" id="link">I have an account.</RouterLink>
     </div>
@@ -39,7 +39,7 @@ async function signUpNewUser() {
     alert(error.message + '.')
     console.log(error)
 	} else {
-    alert("You have successfully created an account.")
+    alert("You have successfully created an account. Please check your email for a confirmation message.")
     router.push('/')
     console.log(data)
 	}
@@ -47,7 +47,7 @@ async function signUpNewUser() {
 </script>
 
 <style scoped>
-#create-form{
+#signup-form{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -82,7 +82,7 @@ async function signUpNewUser() {
   font-size: large;
   font-family: "Exo", sans-serif;
 }
-#create {
+#signup {
   margin-bottom: 40px;
   background-color: #4dad5b;
   cursor: pointer;

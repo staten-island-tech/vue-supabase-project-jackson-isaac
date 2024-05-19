@@ -50,9 +50,8 @@ body {
   padding: 20px 0px 40px 0px;
   max-width: 40vmax;
   background-color: white;
-  border: solid;
+  border: solid 2px;
   border-radius: 10px;
-  border-width: 2px;
   border-color: #6a6a6a;
 }
 #logo{

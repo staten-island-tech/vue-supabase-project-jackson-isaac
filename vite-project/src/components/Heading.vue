@@ -1,13 +1,13 @@
 <template>
-  <img src="https://static.pokemon.com/images/pokemon_logo.png" id="pokemon-logo">
+  <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="Pokemon Logo" id="pokemon-logo">
   <header id="navigation">
     <u2 id="user">{{username}}</u2>
     <nav id="views">
       <RouterLink to="/home" class="link">Home</RouterLink>
-      <RouterLink to="/pokedex" class="link">Pokedex</RouterLink>
+      <RouterLink to="/pokedex" class="link">Pokédex</RouterLink>
       <RouterLink to="/trading" class="link">Trading</RouterLink>
     </nav>
-    <button id="sign-out" @click="logOut()">Log out</button>
+    <button id="logout" @click="logOut()">Logout</button>
   </header>
 </template>
 
@@ -20,7 +20,7 @@ const username = ref<string>('')
 
 async function getUsername() {
   const { data: { user } } = await supabase.auth.getUser()
-  username.value = user?.user_metadata.username
+  username.value = user?.user_metadata.username || "User"
 }
 onMounted(() => {
   getUsername()
@@ -35,13 +35,11 @@ async function logOut() {
     }
     else {
       alert("Log out successful.")
-      const { data: { user } } = await supabase.auth.getUser()
-      console.log(user)
       router.push('/')
     }
   } else {
     const { data: { user } } = await supabase.auth.getUser()
-    console.log(user?.user_metadata.username)
+    console.log(user)
   }
 }
 </script>
@@ -78,7 +76,7 @@ async function logOut() {
       color: black;
       transform: translateY(-20px);
     }
-  #sign-out {
+  #logout {
     margin: auto 0px auto 0px;
     padding: 1vmin;
     background-color: #ffcc06;
@@ -86,6 +84,7 @@ async function logOut() {
     border-style: none;
     color: black;
     font-size: 2vmax;
+    font-family: "Exo", sans-serif;
     text-decoration: none;
     cursor: pointer;
   }
