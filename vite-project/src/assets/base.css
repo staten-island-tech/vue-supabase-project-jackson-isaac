@@ -60,3 +60,9 @@
   font-weight: normal;
   text-align: center;
 }
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Exo", sans-serif;
+}

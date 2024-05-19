@@ -34,7 +34,7 @@ async function logOut() {
       console.log(error)
     }
     else {
-      alert("Sign out successful.")
+      alert("Log out successful.")
       const { data: { user } } = await supabase.auth.getUser()
       console.log(user)
       router.push('/')
@@ -82,6 +82,7 @@ async function logOut() {
     margin: auto 0px auto 0px;
     padding: 1vmin;
     background-color: #ffcc06;
+    border-radius: 3px;
     border-style: none;
     color: black;
     font-size: 2vmax;
