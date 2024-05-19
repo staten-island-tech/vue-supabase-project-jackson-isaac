@@ -1,19 +1,25 @@
 <template>
-<div>
-  <form>
-    <label for="email" class="login-form">Email: </label>
-      <input name="email" type="email" class="login-form" v-model="email"><br>
-    <label for="password" class="login-form">Password: </label>
-      <input name="password" type="password" class="login-form" v-model="password"><br>
-    <input type="submit" value="Login" class="login-form" @click.prevent="signInWithEmail()">
-  </form>
-  <RouterLink to="/signup" class="link">Create an Account!</RouterLink>
-</div>
+  <body>
+    <div id="loginfrom">
+      <header>
+        <div id="logo">
+        <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="POKEMON LOGO">
+        </div>
+      </header>
+      <form>
+        <input name="email" type="email" required placeholder="Email" class="login-form" v-model="email"><br>
+        <input name="password" type="password" required placeholder="Password" class="login-form" v-model="password"><br>
+        <input type="submit" value="Login" class="login-form" @click.prevent="signInWithEmail()">
+      </form>
+      <RouterLink to="/signup" class="link">Create an Account!</RouterLink>
+    </div>
+  </body>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { supabase } from '../supabase'
+import router from '@/router';
+import { supabase } from '../supabase';
 
 const email = ref<string>('')
 const password = ref<string>('')
@@ -27,13 +33,33 @@ async function signInWithEmail() {
     alert(error.message)
     console.log(error)
   } else {
+    router.push('/home')
     console.log(data)
   }
 }
 </script>
 
 <style scoped>
-  .login-form {
-    margin-top: 20px;
-  }
+.login-form {
+  margin-top: 20px;
+}
+#loginfrom{
+  position: relative;
+  left: 50%;transform: translate(-50%);
+  border-radius: 10px;
+  max-width: 500px;
+  border: solid;
+  padding: 5px;
+  align-self: center;
+  background-color: white;
+  margin: 20px;
+  border-width: 2px;
+  border-color: #6a6a6a;
+}
+#logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transform: scale(.5);
+}
 </style>
