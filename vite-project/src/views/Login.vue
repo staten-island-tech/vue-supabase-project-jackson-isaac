@@ -1,26 +1,24 @@
 <template>
   <body>
-<div id="loginfrom">
-  <header>
-    <div id="logo">
-    <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="POKEMON LOGO">
+    <div id="login-form">
+      <header>
+        <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="Pokemon Logo" id="logo">
+        <h1 id="title">Egg Hatching Simulator</h1>
+      </header>
+      <form>
+        <input name="email" type="email" required placeholder="Email" class="input" v-model="email"><br>
+        <input name="password" type="password" required placeholder="Password" class="input" v-model="password"><br>
+        <input type="submit" value="Login" class="button" id="login" @click.prevent="signInWithEmail()">
+      </form>
+      <RouterLink to="/signup" class="button" id="link">Create an account!</RouterLink>
     </div>
-  </header>
-  <form>
-    <label for="email" class="login-form">Email: </label>
-      <input name="email" type="email" class="login-form" v-model="email"><br>
-    <label for="password" class="login-form">Password: </label>
-      <input name="password" type="password" class="login-form" v-model="password"><br>
-    <input type="submit" value="Login" class="login-form" @click.prevent="signInWithEmail()">
-  </form>
-  <RouterLink to="/signup" class="link">Create an Account!</RouterLink>
-</div>
-</body>
+  </body>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { supabase } from '../supabase'
+import router from '@/router';
+import { supabase } from '../supabase';
 
 const email = ref<string>('')
 const password = ref<string>('')
@@ -31,36 +29,61 @@ async function signInWithEmail() {
     password: password.value,
   })
   if (error) {
-    alert(error.message)
+    alert(error.message + '.')
     console.log(error)
   } else {
+    router.push('/home')
     console.log(data)
   }
 }
 </script>
 
 <style scoped>
-
-  .login-form {
-    margin-top: 20px;
-  }
-  #loginfrom{
-    position: relative;
-left: 50%;transform: translate(-50%);
-    border-radius: 10px;
-    max-width: 500px;
-    border: solid;
-    padding: 5px;
-    align-self: center;
-    background-color: white;
-    margin: 20px;
-    border-width: 2px;
-    border-color: #6a6a6a;
-  }
- #logo{
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-transform: scale(.5);
- }
+body {
+  position: relative;
+}
+#login-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 25%);
+  padding: 20px 0px 40px 0px;
+  max-width: 40vmax;
+  background-color: white;
+  border: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #6a6a6a;
+}
+#logo{
+  margin: auto auto;
+  height: 10vmax;
+  justify-content: center;
+}
+.input {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: left;
+  min-width: 50%;
+  font-size: large;
+  font-family: "Exo", sans-serif;
+}
+.button {
+  margin-top: 20px;
+  padding: 10px 5%;
+  border-radius: 3px;
+  border-style: none;
+  color: white;
+  font-size: large;
+  font-family: "Exo", sans-serif;
+}
+#login {
+  margin-bottom: 40px;
+  background-color: #4dad5b;
+  cursor: pointer;
+}
+#link {
+  background-color: #1b53ba;
+  text-decoration: none;
+}
 </style>
