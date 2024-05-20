@@ -54,7 +54,8 @@ async function logOut() {
   padding: 0% 2% 0% 2%;
   display: flex;
   justify-content: space-between;
-  background-color: #323232;
+  background-image: url(https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png);
+  background-repeat: repeat;
   font-size: 2vmax;
 }
   #user {
