@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { supabase } from '@/supabase'
 import Heading from '@/components/Heading.vue'
 import { common, uncommon, rare, legendary } from '@/stores/pokemon'
 
@@ -25,7 +26,7 @@ function hatch() {
     rarity.value = ""
     if (wait.value) return
     wait.value = true
-    setTimeout(() => {
+    setTimeout(async () => {
       wait.value = false
       const random = Math.random()
       let pokemon
@@ -43,6 +44,21 @@ function hatch() {
       imageAlt.value = pokemon?.name ?? 'Pokemon Egg'
       message.value = "You hatched " + pokemon?.name + "!"
       rarity.value = pokemon?.rarity ?? ""
+
+      async function getUser() {
+        let userId = ref<string>('')
+        let username = ref<string>("")
+        const { data: { user } } = await supabase.auth.getUser()
+        userId.value = user?.id || ''
+        username.value = user?.user_metadata.username
+        return {id: userId.value, username: username}
+      }
+      const user = await getUser()
+      const { data, error } = await supabase
+        .from('pokemon')
+        .insert([
+          { owner_id: user.id, username: user.username.value, species: pokemon?.name, rarity: pokemon?.rarity, sprite: pokemon?.sprite },
+        ])
       return pokemon
     }, 5600)
   }
