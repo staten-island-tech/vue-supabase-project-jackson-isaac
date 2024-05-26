@@ -75,7 +75,6 @@ async function logOut() {
     .link:hover {
       background-color: #ffcc06;
       color: black;
-      transform: translateY(-20px);
     }
   #logout {
     margin: auto 0px auto 0px;

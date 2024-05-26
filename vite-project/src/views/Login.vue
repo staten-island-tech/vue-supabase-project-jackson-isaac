@@ -62,8 +62,8 @@ body {
 .input {
   margin-top: 20px;
   padding: 10px;
-  text-align: left;
   min-width: 50%;
+  text-align: left;
   font-size: large;
   font-family: "Exo", sans-serif;
 }
