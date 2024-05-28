@@ -50,9 +50,8 @@ body {
   padding: 20px 0px 40px 0px;
   max-width: 40vmax;
   background-color: white;
-  border: solid 2px;
+  border: solid 2px #6a6a6a;
   border-radius: 10px;
-  border-color: #6a6a6a;
 }
 #logo{
   margin: auto auto;
@@ -80,9 +79,17 @@ body {
   margin-bottom: 40px;
   background-color: #4dad5b;
   cursor: pointer;
+  transition: .25s;
 }
+  #login:hover {
+    background-color: #369143;
+  }
 #link {
   background-color: #1b53ba;
   text-decoration: none;
+  transition: 0.25s;
 }
+  #link:hover {
+    background-color: #1847d7;
+  }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <img src="https://static.pokemon.com/images/pokemon_logo.png" alt="Pokemon Logo" id="pokemon-logo">
   <header id="navigation">
-    <u2 id="user">{{username}}</u2>
+    <u2 id="user">{{ username }}</u2>
     <nav id="views">
       <RouterLink to="/home" class="link">Home</RouterLink>
       <RouterLink to="/pokedex" class="link">Pokédex</RouterLink>
@@ -30,7 +30,7 @@ async function logOut() {
   if (confirm("Are you sure you want to log out?")) {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      alert("Sign out unsucessful.\n" + error.message)
+      alert("Log out unsucessful.\n" + error.message)
       console.log(error)
     }
     else {
@@ -87,5 +87,9 @@ async function logOut() {
     font-family: "Exo", sans-serif;
     text-decoration: none;
     cursor: pointer;
+    transition: 0.25s;
   }
+    #logout:hover {
+      background-color: #daa31c;
+    }
 </style>

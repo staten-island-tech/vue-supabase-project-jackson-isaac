@@ -21,7 +21,7 @@ onMounted(async () => {
   }
   const userId = await getUserId()
   if (userId) {
-    await pokemonStore.fetchinventory(userId)
+    await pokemonStore.fetchInventory(userId)
     loading.value = false
   }
 })

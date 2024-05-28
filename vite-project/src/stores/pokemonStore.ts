@@ -12,15 +12,15 @@ export const usePokemonStore = defineStore({
     inventory: [] as string[],
   }),
   actions: {
-    async fetchinventory(userId: string) {
+    async fetchInventory(userId: string) {
       const { data, error } = await supabase
         .from('pokemon')
-        .select('species')
+        .select('name')
         .eq('owner_id', userId)
       if (error) {
         console.error(error)
       } else {
-        this.inventory = data.map(pokemon => pokemon.species)
+        this.inventory = data.map(pokemon => pokemon.name)
         return this.inventory
       }
     }

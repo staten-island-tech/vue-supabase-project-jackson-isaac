@@ -6,7 +6,7 @@
   </div>
   <component :is="currentTab"></component>
 </template>
-  
+
 <script setup lang="ts">
 import Heading from '@/components/Heading.vue'
 import Inventory from '@/components/Inventory.vue'
@@ -29,6 +29,7 @@ const currentTab = shallowRef(Inventory)
   border-bottom: solid thin #313131;
   font-size: 3vmin;
   font-family: "Exo", sans-serif;
+  cursor: pointer;
   transition: 0.5s;
 }
   .nav-button:hover {

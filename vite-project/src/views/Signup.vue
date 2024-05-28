@@ -86,9 +86,16 @@ async function signUpNewUser() {
   margin-bottom: 40px;
   background-color: #4dad5b;
   cursor: pointer;
+  transition: .25s;
 }
+  #signup:hover {
+    background-color: #369143;
+  }
 #link {
   background-color: #1b53ba;
   text-decoration: none;
 }
+  #link:hover {
+    background-color: #1847d7;
+  }
 </style>

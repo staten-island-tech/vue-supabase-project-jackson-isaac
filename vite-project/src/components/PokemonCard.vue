@@ -1,14 +1,14 @@
 <template>
   <div :class="['pokemon', { 'greyscale': !owned }]">
-    <img :src="pokemon.sprite" :alt="pokemon.name" class="image">
+    <img :src="pokemon.sprite" :alt="'Sprite of ' + pokemon.name + '.'" class="image">
     <p class="number">{{ pokemon.number }}</p>
-    <h3 class="species">{{ pokemon.name }}</h3>
+    <h3 class="name">{{ pokemon.name }}</h3>
     <p class="rarity">{{ pokemon.rarity }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 import { usePokemonStore } from '@/stores/pokemonStore'
 
 const props = defineProps({
@@ -27,7 +27,7 @@ const owned = computed(() => {
 
 <style scoped>
 .pokemon {
-  margin: 2vmax 1vmax 0px 2vmax;
+  margin: 2vmax 2vmax 0px 2vmax;
   width: 20%;
   background-color: #313131;
   border-radius: 3px;
@@ -45,7 +45,7 @@ const owned = computed(() => {
   margin-bottom: 1vmin;
   font-size: 2vmin;
 }
-.species {
+.name {
   font-size: 2vw;
 }
 .rarity {

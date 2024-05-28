@@ -57,7 +57,7 @@ function hatch() {
       const { data, error } = await supabase
         .from('pokemon')
         .insert([
-          { owner_id: user.id, username: user.username.value, species: pokemon?.name, rarity: pokemon?.rarity, sprite: pokemon?.sprite },
+          { owner_id: user.id, username: user.username.value, number: pokemon?.number, name: pokemon?.name, rarity: pokemon?.rarity, sprite: pokemon?.sprite },
         ])
       return pokemon
     }, 5600)
@@ -86,11 +86,15 @@ function hatch() {
   color: white;
   font-size: 2vmax;
   font-family: "Exo", sans-serif;
-}
-button {
   cursor: pointer;
+  transition: 0.25s;
 }
-button.cooldown {
-  cursor: not-allowed;
-}
+  #hatch-button:hover {
+    background-color: #1847d7;
+  }
+  #hatch-button.cooldown {
+    background-color: #1e609d;
+    color: lightgrey;
+    cursor: not-allowed;
+  }
 </style>
