@@ -39,7 +39,7 @@ async function signUpNewUser() {
     alert(error.message + '.')
     console.log(error)
 	} else {
-    alert("You have successfully created an account. Please check your email for a confirmation message.")
+    alert("You've successfully created an account. Please check your email for a confirmation message.")
     router.push('/')
     console.log(data)
 	}
