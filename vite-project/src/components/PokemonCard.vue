@@ -29,9 +29,10 @@ const owned = computed(() => {
 .pokemon {
   margin: 2vmax 2vmax 0px 2vmax;
   width: 20%;
-  background-color: #313131;
+  background-color: #f2f2f2;
+  border: solid thin grey;
   border-radius: 3px;
-  color: white;
+  color: black;
 }
 .image {
   margin-top: 2vmax;
