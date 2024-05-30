@@ -644,7 +644,7 @@ export const common = [
   {
     "number": 399,
     "name": "Bidoof",
-    "sprite": "https://img.pokemondb.net/sprites/black-white/normal/bidoof.png",
+    "sprite": "https://preview.redd.it/someone-interrested-in-adding-the-perfect-bidoof-v0-i3h82qh89ir81.png?width=640&crop=smart&auto=webp&s=37fc0949806439c47ea1b53ac665112aa7460826",
     "rarity": "Common"
   },
   {
