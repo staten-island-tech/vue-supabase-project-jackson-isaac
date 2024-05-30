@@ -1,6 +1,6 @@
 <template>
   <Heading/>
-  <div id="pokedex-navigation">
+  <div id="pokedex-nav">
     <button @click="currentTab = Inventory" class="nav-button">Your Inventory</button>
     <button @click="currentTab = Collectibles" class="nav-button">All Pokémon</button>
   </div>
@@ -8,16 +8,16 @@
 </template>
 
 <script setup lang="ts">
+import { shallowRef } from 'vue'
 import Heading from '@/components/Heading.vue'
 import Inventory from '@/components/Inventory.vue'
 import Collectibles from '@/components/Collectibles.vue'
-import { shallowRef } from 'vue'
 
 const currentTab = shallowRef(Inventory)
 </script>
   
 <style scoped>
-#pokedex-navigation {
+#pokedex-nav {
   margin: 2vmax 20vmin;
   display: flex;
   justify-content: space-evenly;
