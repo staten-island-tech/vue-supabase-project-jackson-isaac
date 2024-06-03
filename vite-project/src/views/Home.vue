@@ -1,9 +1,11 @@
 <template>
   <Heading/>
-  <img :src="image" :alt="imageAlt" id="hatching-sequence"><br>
-  <p id="message">{{ message }}</p>
-  <p id="rarity">{{ rarity }}</p>
-  <button id="hatch-button" @click="hatch" :disabled="wait" :class="{ 'cooldown': wait }">Hatch Egg</button>
+  <div>
+    <img :src="image" :alt="imageAlt" id="hatching-sequence"><br>
+    <p id="message">{{ message }}</p>
+    <p id="rarity">{{ rarity }}</p>
+    <button id="hatch-button" @click="hatch" :disabled="wait" :class="{ 'cooldown': wait }">Hatch Egg</button>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -4,7 +4,7 @@ import LoginPage from '@/views/Login.vue'
 import SignupPage from '@/views/Signup.vue'
 import HomePage from '@/views/Home.vue'
 import Pokedex from '@/views/Pokedex.vue'
-import TradingPage from '@/views/Trading.vue'
+import SettingsPage from '@/views/Settings.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,9 +32,9 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/trading',
-      name: 'trading',
-      component: TradingPage,
+      path: '/settings',
+      name: 'settings',
+      component: SettingsPage,
       meta: { requiresAuth: true }
     },
   ]

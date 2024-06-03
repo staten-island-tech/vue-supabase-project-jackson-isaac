@@ -5,22 +5,41 @@
     <nav id="views">
       <RouterLink to="/home" class="link">Home</RouterLink>
       <RouterLink to="/pokedex" class="link">Pokédex</RouterLink>
-      <RouterLink to="/trading" class="link">Trading</RouterLink>
     </nav>
     <button id="logout" @click="logOut()">Logout</button>
   </header>
+  <RouterLink to="/settings">
+    <img src="https://www.clker.com/cliparts/m/4/9/l/i/V/black-cogwheel-hi.png" alt="Settings Option" id="settings">
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import router from '@/router';
-import { supabase } from '@/supabase';
+import { ref, onMounted } from 'vue'
+import router from '@/router'
+import { supabase } from '@/supabase'
 
 const username = ref<string>('')
 
 async function getUsername() {
-  const { data: { user } } = await supabase.auth.getUser()
-  username.value = user?.user_metadata.username || "User"
+  let { data: { user } } = await supabase.auth.getUser()
+  const userId = user?.id
+  const { data, error } = await supabase
+    .from('profiles')
+    .select()
+    .eq('id', userId)
+  if (error) {
+    username.value = 'User'
+  } else if (!error) {
+    const { error } = await supabase.auth.updateUser({
+      data: { username: data[0].username }
+    })
+    if (error) {
+      username.value = 'User'
+    } else if (!error) {
+      let { data: { user } } = await supabase.auth.getUser()
+      username.value = user?.user_metadata.username
+    }
+  }
 }
 onMounted(() => {
   getUsername()
@@ -92,4 +111,14 @@ async function logOut() {
     #logout:hover {
       background-color: #daa31c;
     }
+#settings {
+  margin-top: 1vmax;
+  left: 1vmax;
+  position: fixed;
+  width: 5vmax;
+  transition: 0.5s;
+}
+  #settings:hover {
+    scale: 1.2;
+  }
 </style>
