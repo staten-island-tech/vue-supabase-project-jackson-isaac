@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref,onMounted } from 'vue'
 import { supabase } from '@/supabase'
 import Heading from '@/components/Heading.vue'
 import { common, uncommon, rare, legendary } from '@/stores/pokemon'
@@ -65,6 +65,13 @@ function hatch() {
     }, 5600)
   }
 }
+onMounted(() => {
+  if (!store.auth.loggedIn) {
+    router.replace({ path: '/Login' });
+  } else {
+    console.log(store.auth);
+  }
+});
 </script>
 
 <style>
