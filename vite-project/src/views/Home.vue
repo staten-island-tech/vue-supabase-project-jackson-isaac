@@ -65,13 +65,7 @@ function hatch() {
     }, 5600)
   }
 }
-onMounted(() => {
-  if (!store.auth.loggedIn) {
-    router.replace({ path: '/Login' });
-  } else {
-    console.log(store.auth);
-  }
-});
+
 </script>
 
 <style>
