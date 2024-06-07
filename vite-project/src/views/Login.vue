@@ -19,7 +19,11 @@
 import { ref } from 'vue';
 import router from '@/router';
 import { supabase } from '../supabase';
+import { session } from "@/stores/sessionstore"
+const store = session();
 
+
+console.log(store)
 const email = ref<string>('')
 const password = ref<string>('')
 
@@ -33,10 +37,12 @@ async function signInWithEmail() {
     console.log(error)
   } else {
     router.push('/home')
-    console.log(data)
+    console.log(store.auth)
+   store.auth.loggedIn = true
   }
 }
 </script>
+
 
 <style scoped>
 body {
